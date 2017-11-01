@@ -1,3 +1,6 @@
-<form>
-  !!!
+<div *ngIf="form==null">
+  Загрузка данных формы ...
+</div>
+<form *ngIf="form!=null">
+   {{form.id}}
 </form>

@@ -5,6 +5,9 @@
   </h1>
 </div>
 
-<beuse-form *ngIf="!isAuth"></beuse-form>
-
+<beuse-form *ngIf="!isAuth" [form]="loginForm"></beuse-form>
+<!-- вполне рабочий вариант
+    <profile *ngIf="isAuth" [logout]="onLogout.bind(this)"></profile>
+    -->
+<profile *ngIf="isAuth" [app]="this"></profile>
 
