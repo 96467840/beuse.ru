@@ -1,13 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Тестовое задание
   </h1>
 </div>
-
-<beuse-form *ngIf="!isAuth" [form]="loginForm"></beuse-form>
-<!-- вполне рабочий вариант
-    <profile *ngIf="isAuth" [logout]="onLogout.bind(this)"></profile>
-    -->
+<div *ngIf="error" style="color:#e10000;">{{error}}</div>
+<beuse-form *ngIf="!isAuth" [form]="loginForm" [submit]="onAuth.bind(this)"></beuse-form>
 <profile *ngIf="isAuth" [app]="this"></profile>
 

@@ -10,21 +10,39 @@ import { AuthService } from './auth.service';
   providers: [AuthService]
 })
 export class AppComponent implements OnInit {
-  title = 'Beuse.Ru';
-  isAuth = !false;
+  isAuth = false;
+  error: string = null;
   loginForm: Form;
 
   constructor(private authService: AuthService) { }
 
   getAuthForm(): void {
-    this.authService.getAuthForm().then((form) => {
+    this.authService.getAuthForm().then(form => this.loginForm = form);
+    /*this.authService.getAuthForm().then((form) => {
       console.log('!!!!!!', form);
       this.loginForm = form;
-    });
+    });*/
   }
 
   ngOnInit(): void {
     this.getAuthForm();
+  }
+
+  onAuth(event: Event): boolean {
+    let that = this;
+    console.log('Auth ...', that.loginForm, event);
+    this.error = null;
+    event.preventDefault();
+    if (that.loginForm.check()) {
+      that.authService.auth(that.loginForm.serialize())
+        .then(res => that.isAuth = res)
+        // в случае ошибки считаем что аутентификация не удалась
+        .catch((error) => {
+          that.error = error;
+          that.isAuth = false;
+        });
+    }
+    return false;
   }
 
   onLogout(): void {

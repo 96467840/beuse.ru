@@ -1,0 +1,5 @@
+<div style="padding:5px;" >
+  <input [(ngModel)]="field.value" type="{{field.input_type}}" name="{{field.full_name}}" />
+  <label>{{field.label}}</label>
+  <span *ngIf="!field.valid" style="color:red">{{field.errors}}</span>
+</div>

@@ -2,5 +2,6 @@
   Загрузка данных формы ...
 </div>
 <form *ngIf="form!=null">
-   {{form.id}}
+  <beuse-field *ngFor="let field of form.children" [field]="field"></beuse-field>
+  <button type="submit" (click)="onSubmit($event)">Отправить</button>
 </form>
