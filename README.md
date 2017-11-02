@@ -1,6 +1,9 @@
 # Beuse.Ru
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+Для корректной работы требуется установка node.js https://nodejs.org/ (работоспособность проверялась на версии v8.6.0)
+После установки node.js выполните команду `npm install` для установки необходимых библиотек. 
+Возможно понадобится установить глобально Angular CLI `npm install -g @angular/cli`
 
 ## Development server
 
